@@ -21,7 +21,7 @@ export class TodosComponent implements OnInit{
     { value: 'DueDate', viewValue: 'DUE DATE' },
     { value: 'CreatedOn', viewValue: 'CREATE TIME' },
   ];
-
+  value = '';
   myObj!:EditTodoComponent
   todos: Todo[]= [];
    newTodo: Todo = {
@@ -63,6 +63,9 @@ export class TodosComponent implements OnInit{
     
     
   }
+
+
+
   
   checkBox(todo:Todo){
     if(todo.isCompleted==1) todo.isCompleted=0
@@ -131,6 +134,23 @@ export class TodosComponent implements OnInit{
       })
     }
    
+   }
+
+   searchOption (){
+      if(this.value.length==0){
+        this.getAllTodos();
+      }else{
+        this.todoService.searchInTodo(this.value)
+        .subscribe({
+          next:(todos)=>{
+            this.todos=todos;
+          }
+        })
+      }
+    
+   }
+   searchClear(){
+     this.getAllTodos();
    }
 
    

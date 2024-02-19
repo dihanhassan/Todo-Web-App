@@ -84,5 +84,17 @@ namespace TODO.API.Controllers
             return response;
         }
 
+        [HttpGet]
+        [Route("GetAllTodosUsingSearch/{SearchText}")]
+
+        public Response GetAllTodosUsingSearch(string SearchText)
+        {
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
+            Response response = new Response();
+            DAL dal = new DAL();
+            response = dal.GetAllTodosUsingSearch(connection, SearchText);
+            return response;
+        }
+
     }   
 }

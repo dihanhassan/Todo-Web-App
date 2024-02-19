@@ -10,10 +10,7 @@ const routes: Routes = [
     path: 'todos',
     component: TodosComponent
   },
-  {
-    path: '',
-    component: AppComponent
-  }
+  
 ];
 
 @NgModule({

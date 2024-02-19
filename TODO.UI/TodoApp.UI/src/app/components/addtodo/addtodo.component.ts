@@ -18,9 +18,9 @@ export class AddtodoComponent implements OnInit {
 
   
   priorityOptions: PriorityOption[] = [
-    { value: 'normal', viewValue: 'Normal' },
-    { value: 'medium', viewValue: 'Medium' },
-    { value: 'high', viewValue: 'High' },
+    { value: 'Normal', viewValue: 'Normal' },
+    { value: 'Medium', viewValue: 'Medium' },
+    { value: 'High', viewValue: 'High' },
   ];
 
   

@@ -23,11 +23,11 @@ td{
    
     margin-bottom: 5px;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     padding-right: 50px;
 }
-.filter{
+.filter,.searchOption{
     height: 30px;
     
 }

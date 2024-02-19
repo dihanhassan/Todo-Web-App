@@ -887,19 +887,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rayanop\\.nuget\\packages\\": {}
+    "C:\\Users\\TN-99347\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rayanop\\Documents\\Project Todo\\Todo-App\\TODO.API\\TODO.API\\TODO.API\\TODO.API.csproj",
+      "projectUniqueName": "C:\\Users\\TN-99347\\Desktop\\Sample Project\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\TODO.API.csproj",
       "projectName": "TODO.API",
-      "projectPath": "C:\\Users\\Rayanop\\Documents\\Project Todo\\Todo-App\\TODO.API\\TODO.API\\TODO.API\\TODO.API.csproj",
-      "packagesPath": "C:\\Users\\Rayanop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rayanop\\Documents\\Project Todo\\Todo-App\\TODO.API\\TODO.API\\TODO.API\\obj\\",
+      "projectPath": "C:\\Users\\TN-99347\\Desktop\\Sample Project\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\TODO.API.csproj",
+      "packagesPath": "C:\\Users\\TN-99347\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\TN-99347\\Desktop\\Sample Project\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Rayanop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TN-99347\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

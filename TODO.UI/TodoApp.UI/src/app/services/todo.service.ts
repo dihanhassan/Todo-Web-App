@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Todo } from '../models/todo.model';
+import { response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,13 @@ export class TodoService {
     console.log(newTodo)
     return this.http.patch<Todo>(this.baseApiUrl + '/api/Todo/StatusUpdateTodo', newTodo);
    
+  }
+
+  searchInTodo(searchText : string) : Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingSearch/'+searchText)
+    .pipe(map((response: {listTodos: any;})=>response.listTodos
+    
+    ));
   }
 
 
