@@ -6,7 +6,7 @@
 
      <div class="searchOption">
       <mat-form-field class="example-form-field" >
-        <mat-label>Search by Title</mat-label>
+        <mat-label>Search by Task</mat-label>
         <input matInput type="text" [(ngModel)]="value" (input)="searchOption()">
         @if (value) {
           <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''" (click)="searchClear()">
@@ -38,7 +38,7 @@
               <tr >
                 <th scope="col"  style="color: rgb(211, 48, 116);"> CREATE TIME</th>
                 
-                  <th scope="col" style="color: rgb(211, 48, 116);">TITLE</th>
+                  <th scope="col" style="color: rgb(211, 48, 116);">TASK</th>
                   
                   <th scope="col"  style="color: rgb(211, 48, 116);">DESCRIPTION</th>
                   
@@ -52,16 +52,21 @@
           <tbody >
             
               <tr *ngFor="let todo of todos" >
-                <td style="font-size: 13px;">{{todo.createdOn | date: "MMM d, y, h:mm:ss a"}}</td>
+                <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}" style="font-size: 13px;"><del>{{todo.createdOn | date: "MMM d, y, h:mm:ss a"}}</del></td>
+                <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}" style="font-size: 13px;">{{todo.createdOn | date: "MMM d, y, h:mm:ss a"}}</td>
                 
-                  <td>{{todo.title}}</td>
-                  
-                  <td>{{todo.descriptions}}</td>
+                  <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}"> <del>{{todo.title}}</del></td>
+                  <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}"> {{todo.title}}</td>
+                  <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}"> <del>{{todo.descriptions}}</del></td>
+                  <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}" > {{todo.descriptions}}</td>
                  
                 
-                  <td>{{todo.prioritys}}</td>
-                  <td style="font-size: 13px;">{{todo.dueDate | date: "MMM d, y, h:mm:ss a"}}</td>
-                  <td>
+                  <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}" >{{todo.prioritys}}</td>
+                  <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}"  ><del>{{todo.prioritys}}</del></td>
+                 
+                  <td *ngIf="todo.isCompleted === 1" style="font-size: 13px;" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}"><del>{{todo.dueDate | date: "MMM d, y, h:mm:ss a"}}</del></td>
+                  <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}" style="font-size: 13px;">{{todo.dueDate| date: "MMM d, y, h:mm:ss a"}}</td>
+                  <td >
                     <section class="example-section" >
                       <mat-checkbox *ngIf="todo.isCompleted == 0" [checked]="false"  (change)="checkBox(todo)"></mat-checkbox>
                       <mat-checkbox *ngIf="todo.isCompleted == 1" [checked]="true" (change)="checkBox(todo)"></mat-checkbox>
