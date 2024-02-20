@@ -32,7 +32,7 @@ export class LogInComponent implements OnInit{
       next:(login)=>{
         if(login!=null && login.userName===this.credential.userName &&   login.userPassword === this.credential.userPassword){
           
-          this.router.navigate(['/todos']);
+          this.router.navigate(['/todos'],{ queryParams: { user: this.credential.userName } });
         }else{
           alert("Failed");
         }

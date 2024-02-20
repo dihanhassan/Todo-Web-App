@@ -5,6 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditTodoComponent } from '../edit-todo/edit-todo.component';
 import { AddtodoComponent } from '../addtodo/addtodo.component';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { warn } from 'console';
 interface PriorityOption {
   value: string;
   viewValue: string;
@@ -21,7 +24,10 @@ export class TodosComponent implements OnInit{
     { value: 'DueDate', viewValue: 'DUE DATE' },
     { value: 'CreatedOn', viewValue: 'CREATE TIME' },
   ];
+  completedTask:number=0
+
   value = '';
+  user_name!: string;
   myObj!:EditTodoComponent
   todos: Todo[]= [];
    newTodo: Todo = {
@@ -48,17 +54,28 @@ export class TodosComponent implements OnInit{
   constructor(private todoService: TodoService,
     private _dialog : MatDialog,
     //  private _edit:EditTodoComponent
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute
    
     ) {}
   ngOnInit(): void {
-    //this.getAllTodos();
-   
+
+    
+  
+    this.route.queryParams.subscribe(params => {
+      this.user_name = params['user'];
+      
+    });
+    console.log(this.user_name)
+
+    // warn(this.data)
     if(this.filterOption !=null){
        this.GetAllTodosUsingFilter()
     }else{
       this.getAllTodos();
     }
+    
 
     
     
@@ -84,6 +101,8 @@ export class TodosComponent implements OnInit{
     .subscribe({
       next: (todos) => {
         this.todos = todos;
+        // add 
+        
        // this.toppings.patchValue({  });
       }
     });
