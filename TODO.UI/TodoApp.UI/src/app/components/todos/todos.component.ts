@@ -24,8 +24,8 @@ export class TodosComponent implements OnInit{
     { value: 'DueDate', viewValue: 'DUE DATE' },
     { value: 'CreatedOn', viewValue: 'CREATE TIME' },
   ];
-  completedTask:number=0
-
+  completedTask!:number
+  inCompletedTask!:number
   value = '';
   user_name!: string;
   myObj!:EditTodoComponent
@@ -62,7 +62,7 @@ export class TodosComponent implements OnInit{
   ngOnInit(): void {
 
     
-  
+    
     this.route.queryParams.subscribe(params => {
       this.user_name = params['user'];
       
@@ -74,6 +74,7 @@ export class TodosComponent implements OnInit{
        this.GetAllTodosUsingFilter()
     }else{
       this.getAllTodos();
+      
     }
     
 
@@ -101,6 +102,15 @@ export class TodosComponent implements OnInit{
     .subscribe({
       next: (todos) => {
         this.todos = todos;
+        this.completedTask=0
+        console.log(this.todos)
+        for(let todo of this.todos){
+          if(todo.isCompleted){
+            this.completedTask++;
+          }
+        }
+        this.inCompletedTask=todos.length-this.completedTask
+        console.log(this.inCompletedTask)
         // add 
         
        // this.toppings.patchValue({  });

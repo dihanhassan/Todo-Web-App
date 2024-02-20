@@ -40,3 +40,9 @@ td{
     font-weight: 50px;
     
 }
+
+.userBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
