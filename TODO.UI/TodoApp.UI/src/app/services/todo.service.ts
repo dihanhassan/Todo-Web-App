@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Todo } from '../models/todo.model';
 import { response } from 'express';
+import { Login } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,15 @@ export class TodoService {
     .pipe(map((response: {listTodos: any;})=>response.listTodos
     
     ));
+  }
+
+  userValidition(login: Login): Observable<Login> {
+    login.id = 0;
+    return this.http.post<any>(this.baseApiUrl + '/api/Todo/UserValidition', login)
+    .pipe(
+      map(response => response.login) // Map to the 'login' property
+    );
+     
   }
 
 

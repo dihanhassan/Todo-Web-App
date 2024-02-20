@@ -96,5 +96,16 @@ namespace TODO.API.Controllers
             return response;
         }
 
+        [HttpPost]
+        [Route("UserValidition")]
+        public AuthResponse UserValidition(Login login)
+        {
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
+            AuthResponse response = new AuthResponse();
+            DAL dal = new DAL();
+            response = dal.UserValidition(connection, login);
+            return response;
+        }
+
     }   
 }

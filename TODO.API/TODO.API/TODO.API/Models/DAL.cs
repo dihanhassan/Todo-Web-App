@@ -264,6 +264,34 @@ namespace TODO.API.Models
         }
 
 
+        public AuthResponse UserValidition(SqlConnection connection, Login login)
+        {
+            AuthResponse response = new AuthResponse();
+            
+
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM userAuth WHERE  UserName = '" + login.UserName + "' AND  UserPassword = '" + login.UserPassword + "' ", connection);
+            DataTable dt = new DataTable();
+            
+
+            da.Fill(dt);
+
+            if(dt.Rows.Count>0)
+            {
+                response.StatusCode = 200;
+                response.StatusMessage = "login Success";
+                response.Login = login;
+            }
+            else
+            {
+                response.StatusMessage = "login failed";
+                response.Login = null;
+            }
+
+            return response;
+           
+        }
+
+
 
 
 

@@ -25,6 +25,8 @@ import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {FormBuilder} from '@angular/forms';
 import {JsonPipe} from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { LogInComponent } from './components/log-in/log-in.component';
+
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppComponent,
     TodosComponent,
     AddtodoComponent,
-    EditTodoComponent
+    EditTodoComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,
@@ -53,10 +56,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ReactiveFormsModule,
     
     JsonPipe,
-    MatCheckboxModule
-
+    MatCheckboxModule,
+    
+   
 
   ],
+
+  
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
