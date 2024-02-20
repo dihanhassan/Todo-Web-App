@@ -182,6 +182,17 @@ export class TodosComponent implements OnInit{
      this.getAllTodos();
    }
 
+
+   GetAllTodosUsingStatus(filterOption:number){
+      console.log(filterOption)
+      this.todoService.GetAllTodosUsingStatus(filterOption)
+      .subscribe({
+        next:(todo)=>{
+            this.todos=todo;
+        }
+      });
+   }
+
    
   
 }

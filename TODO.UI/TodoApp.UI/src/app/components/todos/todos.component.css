@@ -46,3 +46,8 @@ td{
     flex-direction: column;
     justify-content: center;
 }
+
+.viewButton{
+    align-self: center;
+    margin-top: 10px;
+}

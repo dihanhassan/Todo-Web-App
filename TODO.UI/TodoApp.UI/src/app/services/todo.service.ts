@@ -59,6 +59,9 @@ export class TodoService {
     );
      
   }
-
+  GetAllTodosUsingStatus(filterOption:number): Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingStatus/'+filterOption)
+               .pipe(map((response: { listTodos: any; }) => response.listTodos));
+  }
 
 }

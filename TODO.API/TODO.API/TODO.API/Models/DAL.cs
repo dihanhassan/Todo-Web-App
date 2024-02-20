@@ -293,6 +293,65 @@ namespace TODO.API.Models
 
 
 
+        public Response GetAllTodosUsingStatus(SqlConnection connection, int FilterOption)
+        {
+            Response response = new Response();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable ORDER BY '" + FilterOption + "'", connection);
+            DataTable dt = new DataTable();
+            List<Todo> TodoList = new List<Todo>();
+
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                List<Todo> CompleteTodoList = new List<Todo>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+
+                    Todo todo = new Todo();
+                    todo.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
+                    todo.Title = Convert.ToString(dt.Rows[i]["Title"]);
+                    todo.Descriptions = Convert.ToString(dt.Rows[i]["Descriptions"]);
+                    todo.IsCompleted = Convert.ToInt32(dt.Rows[i]["IsCompleted"]);
+                    todo.CreatedOn = Convert.ToDateTime(dt.Rows[i]["CreatedOn"]);
+                    todo.DueDate = Convert.ToDateTime(dt.Rows[i]["DueDate"]);
+                    todo.Prioritys = Convert.ToString(dt.Rows[i]["Prioritys"]);
+
+                    if (Convert.ToInt32(dt.Rows[i]["IsCompleted"]) == 1)
+                    {
+                        CompleteTodoList.Add(todo);
+                    }
+                    else
+                    {
+                        TodoList.Add(todo);
+                    }
+                }
+              //  TodoList = TodoList.Concat(CompleteTodoList).ToList();
+                if (TodoList.Count > 0)
+                {
+                    response.StatusCode = 200;
+                    response.StatusMessage = "Data found";
+                    if (FilterOption == 1)
+                    {
+                        response.ListTodos = CompleteTodoList;
+                    }
+                    else
+                    {
+                        response.ListTodos = TodoList;
+                    }
+                    
+
+
+                }
+                else
+                {
+                    response.StatusCode = 100;
+                    response.StatusMessage = "Data found";
+                    response.ListTodos = null;
+                }
+
+            }
+            return response;
+        }
 
 
 

@@ -17,11 +17,18 @@
           (click)="searchClear()">Clear</button>
       </div>
 
-      <div class="userBox" style=" margin-top: 30px;">
+      <div class="userBox" style=" margin-top: 80px;">
         <p class="user_info" style="text-align: center;"> <b>{{user_name}}'s Todo List</b> </p>
         <span style="color: rgb(19, 15, 15);"><b>Total Task : {{todos.length}} </b> || <b> Completed Task : {{completedTask}} </b>||<b> Pending Task : {{inCompletedTask}}</b> </span>
-
-            
+        
+        <div class="example-button-row viewButton" >
+          
+          
+          <button mat-raised-button color="accent" style="margin-right: 10px;" (click)="GetAllTodosUsingStatus(1)">COMPLETE</button>
+          <button mat-raised-button color="primary" (click)="GetAllTodosUsingStatus(0)">PENDING</button>
+          
+        </div>
+        
         <!-- <span>Total Task : {{todos.length}}  Completed Task : </span> -->
 
       </div>

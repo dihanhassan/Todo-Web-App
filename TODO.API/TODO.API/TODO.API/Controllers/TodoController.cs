@@ -107,5 +107,18 @@ namespace TODO.API.Controllers
             return response;
         }
 
+        [HttpGet]
+        [Route("GetAllTodosUsingStatus/{FilterOption}")]
+
+        public Response GetAllTodosUsingStatus(int  FilterOption)
+        {
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
+            Response response = new Response();
+            DAL dal = new DAL();
+            response = dal.GetAllTodosUsingStatus(connection, FilterOption);
+            return response;
+        }
+
+
     }   
 }
