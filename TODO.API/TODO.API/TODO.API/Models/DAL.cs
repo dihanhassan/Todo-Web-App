@@ -5,10 +5,10 @@ namespace TODO.API.Models
 {
     public class DAL
     {
-        public Response GetAllTodos(SqlConnection connection)
+        public Response GetAllTodos(SqlConnection connection, int UserId)
         {
             Response response = new Response();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable ORDER BY ID DESC", connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable_v2 ORDER BY ID DESC", connection);
             DataTable dt = new DataTable();
             List<Todo> TodoList = new List<Todo>();
             da.Fill(dt);
@@ -17,7 +17,10 @@ namespace TODO.API.Models
                 List<Todo> CompleteTodoList = new List<Todo>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
+                    if (Convert.ToInt32(dt.Rows[i]["Id"]) != UserId)
+                        continue;
                     Todo todo = new Todo();
+                    todo.TaskId = Convert.ToInt32(dt.Rows[i]["TaskId"]);
                     todo.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                     todo.Title = Convert.ToString(dt.Rows[i]["Title"]);
                     todo.Descriptions = Convert.ToString(dt.Rows[i]["Descriptions"]);
@@ -58,7 +61,7 @@ namespace TODO.API.Models
         public Response AddTodo(SqlConnection connection, Todo todo)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("INSERT INTO TodoTable (Title , Descriptions ,CreatedOn ,IsCompleted ,DueDate, Prioritys) VALUES ('" + todo.Title + "', '" + todo.Descriptions + "', GETDATE() ,'" + todo.IsCompleted + "' , '" + todo.DueDate + "' , '" + todo.Prioritys + "' )", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO TodoTable_v2 (Id , Title , Descriptions ,CreatedOn ,IsCompleted ,DueDate, Prioritys) VALUES ( '"+ todo.Id+ "' ,'" + todo.Title + "', '" + todo.Descriptions + "', GETDATE() ,'" + todo.IsCompleted + "' , '" + todo.DueDate + "' , '" + todo.Prioritys + "' )", connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
@@ -85,7 +88,7 @@ namespace TODO.API.Models
         public Response UpdateTodo(SqlConnection connection, Todo todo)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("UPDATE  TodoTable SET Title =  '" + todo.Title + "', Descriptions = '" + todo.Descriptions + "', DueDate = '" + todo.DueDate + "', Prioritys = '"+ todo.Prioritys+ "', IsCompleted = '"+ todo.IsCompleted+"'   WHERE ID = '" + todo.Id + "' ", connection);
+            SqlCommand cmd = new SqlCommand("UPDATE  TodoTable_v2 SET Title =  '" + todo.Title + "', Descriptions = '" + todo.Descriptions + "', DueDate = '" + todo.DueDate + "', Prioritys = '"+ todo.Prioritys+ "', IsCompleted = '"+ todo.IsCompleted+"'   WHERE ID = '" + todo.Id + "' AND TaskID = '"+ todo.TaskId +"'  ", connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
@@ -112,7 +115,7 @@ namespace TODO.API.Models
         public Response DeleteTodo(SqlConnection connection, int id)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("Delete from TodoTable WHERE ID = '" + id + "' ", connection);
+            SqlCommand cmd = new SqlCommand("Delete from TodoTable_v2 WHERE ID = '" + id + "' ", connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
@@ -130,10 +133,10 @@ namespace TODO.API.Models
         }
         
 
-        public Response GetAllTodosUsingFilter(SqlConnection connection,string FilterOption)
+        public Response GetAllTodosUsingFilter(SqlConnection connection,string FilterOption,int UserId)
         {
             Response response = new Response();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable ORDER BY '"+FilterOption+"'", connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable_v2 ORDER BY '"+FilterOption+"'", connection);
             DataTable dt = new DataTable();
             List<Todo> TodoList = new List<Todo>();
            
@@ -143,7 +146,9 @@ namespace TODO.API.Models
                 List<Todo> CompleteTodoList = new List<Todo>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    
+                    if (Convert.ToInt32(dt.Rows[i]["Id"]) != UserId)
+                        continue;
+
                     Todo todo = new Todo();
                     todo.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                     todo.Title = Convert.ToString(dt.Rows[i]["Title"]);

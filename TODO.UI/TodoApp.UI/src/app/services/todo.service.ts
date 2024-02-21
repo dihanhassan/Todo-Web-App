@@ -13,13 +13,13 @@ export class TodoService {
    
   constructor(private http: HttpClient) { }
 
-  getAllTodos(): Observable<Todo[]> {
-    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodos')
+  getAllTodos(id : number): Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodos/'+id)
                .pipe(map((response: { listTodos: any; }) => response.listTodos));
   }
   addTodo(newTodo: Todo): Observable<Todo>{
     
-    newTodo.id =0;
+   
     return this.http.post<Todo>(this.baseApiUrl + '/api/Todo/AddTodo', newTodo);
   }
 
@@ -33,8 +33,8 @@ export class TodoService {
    
   }
 
-  getAllTodosUsingFilter(filterOption:string): Observable<Todo[]> {
-    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingFilter/'+filterOption)
+  getAllTodosUsingFilter(filterOption:string,user_id:number): Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingFilter/' + filterOption + '/' + user_id)
                .pipe(map((response: { listTodos: any; }) => response.listTodos));
   }
 

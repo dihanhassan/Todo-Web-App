@@ -54,11 +54,17 @@
   {
     "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "GetAllTodos",
-    "RelativePath": "api/Todo/GetAllTodos",
+    "RelativePath": "api/Todo/GetAllTodos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "TODO.API.Models.Response",
@@ -74,7 +80,7 @@
   {
     "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "GetAllTodosUsingFilter",
-    "RelativePath": "api/Todo/GetAllTodosUsingFilter/{FilterOption}",
+    "RelativePath": "api/Todo/GetAllTodosUsingFilter/{FilterOption}/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -82,6 +88,11 @@
       {
         "Name": "FilterOption",
         "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

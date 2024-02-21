@@ -15,16 +15,16 @@ export class AppComponent {
        private _dialog : MatDialog,
       private todoService : TodoService
     ){}
-  openAddTodoForm(){
-   const dialogRef=  this._dialog.open(AddtodoComponent);
-   dialogRef.afterClosed().subscribe({
-    next:(val)=>{
-      if(val){
-        this.todoService.getAllTodos();
-      }
-    }
-   });
-  }
+  // openAddTodoForm(){
+  //  const dialogRef=  this._dialog.open(AddtodoComponent);
+  //  dialogRef.afterClosed().subscribe({
+  //   next:(val)=>{
+  //     if(val){
+  //       this.todoService.getAllTodos();
+  //     }
+  //   }
+  //  });
+  // }
 
   
 }

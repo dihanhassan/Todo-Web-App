@@ -29,7 +29,7 @@ export class TodosComponent implements OnInit{
   inCompletedTask!:number
   value = '';
   user_name!: string;
-  user_id!:string;
+  user_id!:number;
   myObj!:EditTodoComponent
   todos: Todo[]= [];
    newTodo: Todo = {
@@ -68,14 +68,15 @@ export class TodosComponent implements OnInit{
     
     this.route.queryParams.subscribe(params => {
       this.user_name = params['user'];
-      this.user_id= params['user_id']
+      this.user_id= params['id']
       
     });
-    console.log(this.user_name)
+    console.log(this.user_id)
 
     // warn(this.data)
     if(this.filterOption !=null){
        this.GetAllTodosUsingFilter()
+       this.getAllTodos()
     }else{
       this.getAllTodos();
       
@@ -88,11 +89,13 @@ export class TodosComponent implements OnInit{
 
 
   openAddTodoForm(){
-    const dialogRef=  this._dialog.open(AddtodoComponent);
+    const dialogRef=  this._dialog.open(AddtodoComponent,{
+      data: { id:this.user_id }
+    });
     dialogRef.afterClosed().subscribe({
      next:(val)=>{
        if(val){
-         this.todoService.getAllTodos();
+         this.todoService.getAllTodos(this.user_id);
        }
      }
     });
@@ -111,7 +114,7 @@ export class TodosComponent implements OnInit{
   }
 
   getAllTodos(){
-    this.todoService.getAllTodos()
+    this.todoService.getAllTodos(this.user_id)
     .subscribe({
       next: (todos) => {
         this.todos = todos;
@@ -168,7 +171,7 @@ export class TodosComponent implements OnInit{
     
     console.log(this.filterOption)
     if(this.filterOption!=null){
-      this.todoService.getAllTodosUsingFilter(this.filterOption)
+      this.todoService.getAllTodosUsingFilter(this.filterOption,this.user_id)
       .subscribe({
           next: (todo)=>{
             this.todos=todo;

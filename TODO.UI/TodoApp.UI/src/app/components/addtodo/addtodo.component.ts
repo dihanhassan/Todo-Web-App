@@ -24,7 +24,7 @@ export class AddtodoComponent implements OnInit {
   ];
 
   
-
+  user_profile_id!:number
   todos: Todo[] = [];
   newTodo: Todo = {
     taskId:0,
@@ -43,7 +43,12 @@ export class AddtodoComponent implements OnInit {
     private todoService: TodoService ,
     private _dialogRef : MatDialogRef<AddtodoComponent>,
     @Inject (MAT_DIALOG_DATA) private data:any
-    ) {}
+    ) {
+
+      this.newTodo.id=data.id
+      this.user_profile_id=data.id
+      console.log("add here" + this.newTodo.id)
+    }
 
   ngOnInit(): void {
     
@@ -63,7 +68,7 @@ export class AddtodoComponent implements OnInit {
  
 
   getAllTodos() {
-    this.todoService.getAllTodos()
+    this.todoService.getAllTodos(this.user_profile_id)
       .subscribe({
         next: (todos) => {
           this.todos = todos;

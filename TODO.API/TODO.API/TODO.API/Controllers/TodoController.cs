@@ -18,14 +18,14 @@ namespace TODO.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllTodos")]
+        [Route("GetAllTodos/{id}")]
         
-        public Response GetAllTodos()
+        public Response GetAllTodos(int id)
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
             Response response = new Response();
             DAL dal = new DAL();
-            response = dal.GetAllTodos(connection);
+            response = dal.GetAllTodos(connection,id);
             return response;
         }
         [HttpPost]
@@ -63,14 +63,14 @@ namespace TODO.API.Controllers
 
 
         [HttpGet]
-        [Route("GetAllTodosUsingFilter/{FilterOption}")]
+        [Route("GetAllTodosUsingFilter/{FilterOption}/{userId}")]
 
-        public Response GetAllTodosUsingFilter(string FilterOption)
+        public Response GetAllTodosUsingFilter(string FilterOption,int UserId)
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
             Response response = new Response();
             DAL dal = new DAL();
-            response = dal.GetAllTodosUsingFilter(connection,FilterOption);
+            response = dal.GetAllTodosUsingFilter(connection,FilterOption, UserId);
             return response;
         }
         [HttpPatch]

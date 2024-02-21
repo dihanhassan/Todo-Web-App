@@ -4,6 +4,7 @@ namespace TODO.API.Models
 {
     public class Todo
     {
+        public int TaskId { get; set; }
         public int Id { get; set; }
         [Required(ErrorMessage ="Please add Title")]
         public string Title { get; set; }

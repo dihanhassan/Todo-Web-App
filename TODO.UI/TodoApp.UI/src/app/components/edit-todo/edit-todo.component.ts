@@ -43,6 +43,8 @@ export class EditTodoComponent  implements OnInit{
   {
 
     this.newTodo=data.todo;
+    this.newTodo.taskId=data.todo.taskId;
+    
   }
 
   ngOnInit(): void {
@@ -52,10 +54,11 @@ export class EditTodoComponent  implements OnInit{
   }
 
   getAllTodos() {
-    this.todoService.getAllTodos()
+    this.todoService.getAllTodos(this.newTodo.id)
       .subscribe({
         next: (todos) => {
           this.todos = todos;
+          
         }
       });
   }
@@ -67,7 +70,7 @@ export class EditTodoComponent  implements OnInit{
     this.todoService.updateTodo(this.newTodo)
       .subscribe({
         next: (todo) => {
-         
+          this.ngOnInit()
           this._dialogRef.close(true);
 
 
