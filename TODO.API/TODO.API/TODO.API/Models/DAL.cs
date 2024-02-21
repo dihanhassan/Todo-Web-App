@@ -191,7 +191,7 @@ namespace TODO.API.Models
         public Response StatusUpdateTodo(SqlConnection connection, Todo todo)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("UPDATE  TodoTable SET  IsCompleted = '" + todo.IsCompleted + "'   WHERE ID = '" + todo.Id + "' ", connection);
+            SqlCommand cmd = new SqlCommand("UPDATE  TodoTable_v2 SET  IsCompleted = '" + todo.IsCompleted + "'   WHERE ID = '" + todo.Id + "' AND TaskId= '"+todo.TaskId+"' ", connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
@@ -215,12 +215,12 @@ namespace TODO.API.Models
             return response;
         }
 
-        public Response GetAllTodosUsingSearch(SqlConnection connection, string SearchText)
+        public Response GetAllTodosUsingSearch(SqlConnection connection, string SearchText,int id)
         {
             Response response = new Response();
             // SELECT * FROM your_table  WHERE CONTAINS(your_column, 'search_word*');
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable WHERE  Title LIKE '"+SearchText+ "%' OR Title LIKE '%"+SearchText+ "%' OR Title LIKE '%"+SearchText+"' ", connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable_v2  WHERE   (Title LIKE '"+SearchText+ "%' OR Title LIKE '%"+SearchText+ "%' OR Title LIKE '%"+SearchText+"') AND ( Id = '"+id+"' )  ", connection);
             DataTable dt = new DataTable();
             List<Todo> TodoList = new List<Todo>();
 
@@ -232,6 +232,7 @@ namespace TODO.API.Models
                 {
 
                     Todo todo = new Todo();
+                    todo.TaskId = Convert.ToInt32(dt.Rows[i]["TaskId"]);
                     todo.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                     todo.Title = Convert.ToString(dt.Rows[i]["Title"]);
                     todo.Descriptions = Convert.ToString(dt.Rows[i]["Descriptions"]);
@@ -300,10 +301,10 @@ namespace TODO.API.Models
 
 
 
-        public Response GetAllTodosUsingStatus(SqlConnection connection, int FilterOption)
+        public Response GetAllTodosUsingStatus(SqlConnection connection, int FilterOption,int id)
         {
             Response response = new Response();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable", connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable_v2 WHERE  Id = '"+id+"' ", connection);
             DataTable dt = new DataTable();
             List<Todo> TodoList = new List<Todo>();
 
@@ -315,6 +316,7 @@ namespace TODO.API.Models
                 {
 
                     Todo todo = new Todo();
+                    todo.TaskId = Convert.ToInt32(dt.Rows[i]["TaskId"]);
                     todo.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                     todo.Title = Convert.ToString(dt.Rows[i]["Title"]);
                     todo.Descriptions = Convert.ToString(dt.Rows[i]["Descriptions"]);

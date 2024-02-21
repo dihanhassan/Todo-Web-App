@@ -116,7 +116,7 @@
   {
     "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "GetAllTodosUsingSearch",
-    "RelativePath": "api/Todo/GetAllTodosUsingSearch/{SearchText}",
+    "RelativePath": "api/Todo/GetAllTodosUsingSearch/{SearchText}/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -124,6 +124,11 @@
       {
         "Name": "SearchText",
         "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -142,13 +147,18 @@
   {
     "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "GetAllTodosUsingStatus",
-    "RelativePath": "api/Todo/GetAllTodosUsingStatus/{FilterOption}",
+    "RelativePath": "api/Todo/GetAllTodosUsingStatus/{FilterOption}/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "FilterOption",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }

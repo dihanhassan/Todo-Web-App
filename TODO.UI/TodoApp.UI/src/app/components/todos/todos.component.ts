@@ -188,7 +188,7 @@ export class TodosComponent implements OnInit{
       if(this.value.length==0){
         this.getAllTodos();
       }else{
-        this.todoService.searchInTodo(this.value)
+        this.todoService.searchInTodo(this.value,this.user_id)
         .subscribe({
           next:(todos)=>{
             this.todos=todos;
@@ -204,7 +204,7 @@ export class TodosComponent implements OnInit{
 
    GetAllTodosUsingStatus(filterOption:number){
       console.log(filterOption)
-      this.todoService.GetAllTodosUsingStatus(filterOption)
+      this.todoService.GetAllTodosUsingStatus(filterOption,this.user_id)
       .subscribe({
         next:(todo)=>{
             this.todos=todo;

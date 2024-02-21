@@ -45,8 +45,8 @@ export class TodoService {
    
   }
 
-  searchInTodo(searchText : string) : Observable<Todo[]> {
-    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingSearch/'+searchText)
+  searchInTodo(searchText : string,id : number) : Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingSearch/'+searchText+'/'+id)
     .pipe(map((response: {listTodos: any;})=>response.listTodos
     
     ));
@@ -60,8 +60,8 @@ export class TodoService {
     );
      
   }
-  GetAllTodosUsingStatus(filterOption:number): Observable<Todo[]> {
-    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingStatus/'+filterOption)
+  GetAllTodosUsingStatus(filterOption:number,id :number): Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingStatus/'+filterOption+'/'+id)
                .pipe(map((response: { listTodos: any; }) => response.listTodos));
   }
 

@@ -85,14 +85,14 @@ namespace TODO.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllTodosUsingSearch/{SearchText}")]
+        [Route("GetAllTodosUsingSearch/{SearchText}/{id}")]
 
-        public Response GetAllTodosUsingSearch(string SearchText)
+        public Response GetAllTodosUsingSearch(string SearchText,int id)
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
             Response response = new Response();
             DAL dal = new DAL();
-            response = dal.GetAllTodosUsingSearch(connection, SearchText);
+            response = dal.GetAllTodosUsingSearch(connection, SearchText,id);
             return response;
         }
 
@@ -108,14 +108,14 @@ namespace TODO.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllTodosUsingStatus/{FilterOption}")]
+        [Route("GetAllTodosUsingStatus/{FilterOption}/{id}")]
 
-        public Response GetAllTodosUsingStatus(int  FilterOption)
+        public Response GetAllTodosUsingStatus(int  FilterOption,int id)
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
             Response response = new Response();
             DAL dal = new DAL();
-            response = dal.GetAllTodosUsingStatus(connection, FilterOption);
+            response = dal.GetAllTodosUsingStatus(connection, FilterOption, id);
             return response;
         }
 
