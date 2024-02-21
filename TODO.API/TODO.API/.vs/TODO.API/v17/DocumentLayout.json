@@ -54,8 +54,7 @@
               "RelativeToolTip": "TODO.API\\Models\\Todo.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-21T19:58:16.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-21T19:58:16.846Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "RelativeToolTip": "TODO.API\\Models\\Login.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:57:11.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:57:11.234Z"
             },
             {
               "$type": "Document",
@@ -104,8 +102,7 @@
               "RelativeToolTip": "TODO.API\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-02-19T23:20:49.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:20:49.756Z"
             },
             {
               "$type": "Document",
@@ -113,9 +110,9 @@
               "Title": "TodoController.cs",
               "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs",
               "RelativeDocumentMoniker": "TODO.API\\Controllers\\TodoController.cs",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs",
-              "RelativeToolTip": "TODO.API\\Controllers\\TodoController.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAAAAAEAAAAARAAAA",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs*",
+              "RelativeToolTip": "TODO.API\\Controllers\\TodoController.cs*",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAAAEAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-19T23:20:50.15Z",
               "EditorCaption": ""
@@ -128,7 +125,7 @@
               "RelativeDocumentMoniker": "TODO.API\\Models\\DAL.cs",
               "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\DAL.cs*",
               "RelativeToolTip": "TODO.API\\Models\\DAL.cs*",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAAfAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAHUAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-19T23:20:50.15Z",
               "EditorCaption": ""

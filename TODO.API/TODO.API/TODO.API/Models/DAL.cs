@@ -112,10 +112,10 @@ namespace TODO.API.Models
             return response;
         }
 
-        public Response DeleteTodo(SqlConnection connection, int id)
+        public Response DeleteTodo(SqlConnection connection, int id,int task_id)
         {
             Response response = new Response();
-            SqlCommand cmd = new SqlCommand("Delete from TodoTable_v2 WHERE ID = '" + id + "' ", connection);
+            SqlCommand cmd = new SqlCommand("Delete from TodoTable_v2 WHERE ID = '" + id + "' AND TaskId = '"+task_id +"'", connection);
             connection.Open();
             int i = cmd.ExecuteNonQuery();
             connection.Close();
@@ -150,6 +150,7 @@ namespace TODO.API.Models
                         continue;
 
                     Todo todo = new Todo();
+                    todo.TaskId = Convert.ToInt32(dt.Rows[i]["TaskId"]);
                     todo.Id = Convert.ToInt32(dt.Rows[i]["Id"]);
                     todo.Title = Convert.ToString(dt.Rows[i]["Title"]);
                     todo.Descriptions = Convert.ToString(dt.Rows[i]["Descriptions"]);

@@ -51,13 +51,13 @@ namespace TODO.API.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteTodo/{id}")]
-        public Response DeleteEmployee(int id)
+        [Route("DeleteTodo/{id}/{task_id}")]
+        public Response DeleteEmployee(int id,int task_id)
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
             Response response = new Response();
             DAL dal = new DAL();
-            response = dal.DeleteTodo(connection, id);
+            response = dal.DeleteTodo(connection, id,task_id);
             return response;
         }
 

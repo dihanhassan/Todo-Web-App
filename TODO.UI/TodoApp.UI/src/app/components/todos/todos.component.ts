@@ -76,7 +76,7 @@ export class TodosComponent implements OnInit{
     // warn(this.data)
     if(this.filterOption !=null){
        this.GetAllTodosUsingFilter()
-       this.getAllTodos()
+       
     }else{
       this.getAllTodos();
       
@@ -143,8 +143,9 @@ export class TodosComponent implements OnInit{
   //    }
   //   });
   //  }
-   deleteTodo(id:number){
-     this.todoService.deleteTodo(id)
+   deleteTodo(id:number,task_id:number){
+    console.log(this.newTodo)
+     this.todoService.deleteTodo(id,task_id)
      .subscribe({
       next: (response)=>{
         this.getAllTodos();
@@ -175,6 +176,8 @@ export class TodosComponent implements OnInit{
       .subscribe({
           next: (todo)=>{
             this.todos=todo;
+            console.log(todo);
+            console.log(this.newTodo)
           }
       })
     }

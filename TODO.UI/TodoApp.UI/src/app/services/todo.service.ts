@@ -23,9 +23,10 @@ export class TodoService {
     return this.http.post<Todo>(this.baseApiUrl + '/api/Todo/AddTodo', newTodo);
   }
 
-  deleteTodo(id : number) : Observable<Todo>{
-    alert("Todo deleted");
-    return this.http.delete<Todo>(this.baseApiUrl + '/api/Todo/DeleteTodo/'+id)
+  deleteTodo(id : number, task_id:number) : Observable<Todo>{
+    alert("Todo deleted" + task_id);
+    
+    return this.http.delete<Todo>(this.baseApiUrl + '/api/Todo/DeleteTodo/'+id + '/' + task_id )
   }
   updateTodo(newTodo: Todo): Observable<Todo>{
     console.log(newTodo)

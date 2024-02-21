@@ -28,13 +28,18 @@
   {
     "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "DeleteEmployee",
-    "RelativePath": "api/Todo/DeleteTodo/{id}",
+    "RelativePath": "api/Todo/DeleteTodo/{id}/{task_id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "task_id",
         "Type": "System.Int32",
         "IsRequired": true
       }
