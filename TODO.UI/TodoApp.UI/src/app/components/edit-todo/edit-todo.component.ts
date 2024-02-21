@@ -22,6 +22,7 @@ export class EditTodoComponent  implements OnInit{
 
   todos: Todo[] = [];
   newTodo: Todo = {
+    taskId:0,
     id: 0,
     title: '',
     descriptions: '',

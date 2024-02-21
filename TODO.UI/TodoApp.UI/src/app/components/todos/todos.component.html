@@ -4,17 +4,29 @@
     <div class="headerContent">
 
       <div class="searchOption">
-        <mat-form-field class="example-form-field">
-          <mat-label>Search by Task</mat-label>
-          <input matInput type="text" [(ngModel)]="value" (input)="searchOption()">
-          @if (value) {
-          <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''" (click)="searchClear()">
-            <mat-icon>close</mat-icon>
+        <div class="search">
+          <mat-form-field class="example-form-field">
+            <mat-label>Search by Task</mat-label>
+            <input matInput type="text" [(ngModel)]="value" (input)="searchOption()">
+            @if (value) {
+            <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''" (click)="searchClear()">
+              <mat-icon>close</mat-icon>
+            </button>
+            }
+          </mat-form-field>
+          <button mat-raised-button color="primary" style="margin-bottom: 15px; margin-left: 10px;"
+            (click)="searchClear()">Clear</button>
+        </div>
+        
+        <div class="addTask">
+          <!-- <button mat-raised-button (click)="openAddTodoForm()" style="background-color: blueviolet; color: white;">
+            Add Task
+          </button> -->
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openAddTodoForm()">
+            <mat-icon>add</mat-icon>
           </button>
-          }
-        </mat-form-field>
-        <button mat-raised-button color="primary" style="margin-bottom: 15px; margin-left: 10px;"
-          (click)="searchClear()">Clear</button>
+        </div>
+        
       </div>
 
       <div class="userBox" style=" margin-top: 80px;">
@@ -45,7 +57,7 @@
         <button mat-raised-button color="primary" style="margin-top: 0px; margin-left: 10px;"
           (click)="GetAllTodosUsingFilter()">Apply</button>
       </div>
-
+      
     </div>
     <div class="row details-class">
 

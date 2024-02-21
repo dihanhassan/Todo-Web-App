@@ -52,7 +52,7 @@ export class TodoService {
   }
 
   userValidition(login: Login): Observable<Login> {
-    login.id = 0;
+    
     return this.http.post<any>(this.baseApiUrl + '/api/Todo/UserValidition', login)
     .pipe(
       map(response => response.login) // Map to the 'login' property
@@ -63,5 +63,8 @@ export class TodoService {
     return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingStatus/'+filterOption)
                .pipe(map((response: { listTodos: any; }) => response.listTodos));
   }
+
+
+  
 
 }

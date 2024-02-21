@@ -125,6 +125,32 @@
   },
   {
     "ContainingType": "TODO.API.Controllers.TodoController",
+    "Method": "GetAllTodosUsingStatus",
+    "RelativePath": "api/Todo/GetAllTodosUsingStatus/{FilterOption}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FilterOption",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TODO.API.Models.Response",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "StatusUpdateTodo",
     "RelativePath": "api/Todo/StatusUpdateTodo",
     "HttpMethod": "PATCH",

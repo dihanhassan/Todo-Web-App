@@ -8,6 +8,7 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { warn } from 'console';
+
 interface PriorityOption {
   value: string;
   viewValue: string;
@@ -28,9 +29,11 @@ export class TodosComponent implements OnInit{
   inCompletedTask!:number
   value = '';
   user_name!: string;
+  user_id!:string;
   myObj!:EditTodoComponent
   todos: Todo[]= [];
    newTodo: Todo = {
+    taskId:0,
     id: 0,
     title: '',
     descriptions: '',
@@ -65,6 +68,7 @@ export class TodosComponent implements OnInit{
     
     this.route.queryParams.subscribe(params => {
       this.user_name = params['user'];
+      this.user_id= params['user_id']
       
     });
     console.log(this.user_name)
@@ -83,7 +87,16 @@ export class TodosComponent implements OnInit{
   }
 
 
-
+  openAddTodoForm(){
+    const dialogRef=  this._dialog.open(AddtodoComponent);
+    dialogRef.afterClosed().subscribe({
+     next:(val)=>{
+       if(val){
+         this.todoService.getAllTodos();
+       }
+     }
+    });
+   }
   
   checkBox(todo:Todo){
     if(todo.isCompleted==1) todo.isCompleted=0

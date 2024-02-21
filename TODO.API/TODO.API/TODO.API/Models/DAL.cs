@@ -277,6 +277,7 @@ namespace TODO.API.Models
 
             if(dt.Rows.Count>0)
             {
+                login.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
                 response.StatusCode = 200;
                 response.StatusMessage = "login Success";
                 response.Login = login;
@@ -296,7 +297,7 @@ namespace TODO.API.Models
         public Response GetAllTodosUsingStatus(SqlConnection connection, int FilterOption)
         {
             Response response = new Response();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable ORDER BY '" + FilterOption + "'", connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TodoTable", connection);
             DataTable dt = new DataTable();
             List<Todo> TodoList = new List<Todo>();
 

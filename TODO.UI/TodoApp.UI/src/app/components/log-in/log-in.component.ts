@@ -30,9 +30,11 @@ export class LogInComponent implements OnInit{
     
     this.service.userValidition(this.credential).subscribe({
       next:(login)=>{
+        
         if(login!=null && login.userName===this.credential.userName &&   login.userPassword === this.credential.userPassword){
+          console.log("Hello")
           
-          this.router.navigate(['/todos'],{ queryParams: { user: this.credential.userName } });
+          this.router.navigate(['/todos'],{ queryParams: { user: this.credential.userName , id:login.id} });
         }else{
           alert("Failed");
         }

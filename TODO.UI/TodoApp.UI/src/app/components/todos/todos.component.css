@@ -51,3 +51,7 @@ td{
     align-self: center;
     margin-top: 10px;
 }
+.searchOption{
+    display: flex;
+    flex-direction: column;
+}

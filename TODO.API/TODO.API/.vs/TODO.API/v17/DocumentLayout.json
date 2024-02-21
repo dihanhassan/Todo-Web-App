@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\",
+  "WorkspaceRootPath": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\toto\\todo-web-app\\todo.api\\todo.api\\todo.api\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\toto\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\todo\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\models\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\toto\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\toto\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\toto\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\todo\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\toto\\todo-web-app\\todo.api\\todo.api\\todo.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\todo\\todo-web-app\\todo.api\\todo.api\\todo.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\todo\\todo-web-app\\todo.api\\todo.api\\todo.api\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\todo\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|c:\\users\\rayanop\\desktop\\todo\\todo-web-app\\todo.api\\todo.api\\todo.api\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AED62E0A-604A-47FE-93F9-DB5E276FA9EA}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,24 +42,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AuthResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\AuthResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\AuthResponse.cs",
               "RelativeDocumentMoniker": "TODO.API\\Models\\AuthResponse.cs",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\AuthResponse.cs",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\AuthResponse.cs",
               "RelativeToolTip": "TODO.API\\Models\\AuthResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T00:32:55.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T00:32:55.838Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Login.cs",
+              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Login.cs",
               "RelativeDocumentMoniker": "TODO.API\\Models\\Login.cs",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Login.cs",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Login.cs",
               "RelativeToolTip": "TODO.API\\Models\\Login.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -68,24 +67,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Response.cs",
-              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Response.cs",
+              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Response.cs",
               "RelativeDocumentMoniker": "TODO.API\\Models\\Response.cs",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Response.cs",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\Response.cs",
               "RelativeToolTip": "TODO.API\\Models\\Response.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-19T23:55:15.07Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-19T23:55:15.07Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\appsettings.json",
               "RelativeDocumentMoniker": "TODO.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\appsettings.json",
               "RelativeToolTip": "TODO.API\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -94,12 +92,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TodoController.cs",
-              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs",
+              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs",
               "RelativeDocumentMoniker": "TODO.API\\Controllers\\TodoController.cs",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs*",
-              "RelativeToolTip": "TODO.API\\Controllers\\TodoController.cs*",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Controllers\\TodoController.cs",
+              "RelativeToolTip": "TODO.API\\Controllers\\TodoController.cs",
               "ViewState": "AQIAAFsAAAAAAAAAAAAAAGoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-19T23:20:50.15Z",
@@ -107,13 +105,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DAL.cs",
-              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\DAL.cs",
+              "DocumentMoniker": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\DAL.cs",
               "RelativeDocumentMoniker": "TODO.API\\Models\\DAL.cs",
-              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TOTO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\DAL.cs",
-              "RelativeToolTip": "TODO.API\\Models\\DAL.cs",
-              "ViewState": "AQIAABMBAAAAAAAAAAAIwAoBAAAqAAAA",
+              "ToolTip": "C:\\Users\\Rayanop\\Desktop\\TODO\\Todo-Web-App\\TODO.API\\TODO.API\\TODO.API\\Models\\DAL.cs*",
+              "RelativeToolTip": "TODO.API\\Models\\DAL.cs*",
+              "ViewState": "AQIAAAwBAAAAAAAAAAD4vxgBAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-19T23:20:50.15Z",
               "EditorCaption": ""

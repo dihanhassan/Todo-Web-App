@@ -27,6 +27,7 @@ export class AddtodoComponent implements OnInit {
 
   todos: Todo[] = [];
   newTodo: Todo = {
+    taskId:0,
     id: 0,
     title: '',
     descriptions: '',
@@ -45,6 +46,9 @@ export class AddtodoComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+    
+   
+
     this.getAllTodos();
     // this.data.id=this.newTodo.id;
     // this.data.title=this.newTodo.title;
@@ -55,6 +59,8 @@ export class AddtodoComponent implements OnInit {
     // this.data.prioritys=this.newTodo.prioritys;
     
   }
+
+ 
 
   getAllTodos() {
     this.todoService.getAllTodos()
@@ -90,6 +96,7 @@ export class AddtodoComponent implements OnInit {
 
   private resetNewTodo() {
     this.newTodo = {
+      taskId:0,
       id: 0,
       title: '',
       descriptions: '',
