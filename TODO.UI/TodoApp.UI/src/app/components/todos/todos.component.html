@@ -36,8 +36,8 @@
         <div class="example-button-row viewButton" >
           
           
-          <button mat-raised-button color="accent" style="margin-right: 10px;" (click)="GetAllTodosUsingStatus(1)">COMPLETE</button>
-          <button mat-raised-button color="primary" (click)="GetAllTodosUsingStatus(0)">PENDING</button>
+          <button mat-raised-button color="" style="margin-right: 10px;" (click)="GetAllTodosUsingStatus(1)">COMPLETE</button>
+          <button mat-raised-button color="" (click)="GetAllTodosUsingStatus(0)">PENDING</button>
           
         </div>
         
@@ -73,37 +73,39 @@
             <th scope="col" style="color: rgb(211, 48, 116);">PRIORITY</th>
             <th scope="col" style="color: rgb(211, 48, 116);">DUE DATE</th>
             <th scope="col" style="color: rgb(211, 48, 116);">COMPLETED</th>
+            
             <th style="color: rgb(211, 48, 116);"> MAKE ACTION</th>
+           
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
 
           <tr *ngFor="let todo of todos">
-            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}"
+            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': 'white' , 'color':'black'}"
               style="font-size: 13px;"><del>{{todo.createdOn | date: "MMM d, y, h:mm:ss a"}}</del></td>
-            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}"
+            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': 'white' , 'color':'black'}"
               style="font-size: 13px;">{{todo.createdOn | date: "MMM d, y, h:mm a"}}</td>
 
-            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}">
+            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               <del>{{todo.title}}</del></td>
-            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}">
+            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               {{todo.title}}</td>
-            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}">
+            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               <del>{{todo.descriptions}}</del></td>
-            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}">
+            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               {{todo.descriptions}}</td>
 
 
-            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}">
+            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               {{todo.prioritys}}</td>
-            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': '#f50057' , 'color':'white'}">
+            <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               <del>{{todo.prioritys}}</del></td>
 
             <td *ngIf="todo.isCompleted === 1" style="font-size: 13px;"
-              [ngStyle]="{'background-color': '#f50057' , 'color':'white'}"><del>{{todo.dueDate | date: "MMM d, y,
+            [ngStyle]="{'background-color': 'white' , 'color':'black'}"><del>{{todo.dueDate | date: "MMM d, y,
                 h:mm:ss a"}}</del></td>
-            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': '#673ab7' , 'color':'white'}"
+            <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': 'white' , 'color':'black'}"
               style="font-size: 13px;">{{todo.dueDate| date: "MMM d, y, h:mm a"}}</td>
             <td>
               <section class="example-section">
@@ -111,6 +113,8 @@
                 <mat-checkbox *ngIf="todo.isCompleted == 1" [checked]="true" (change)="checkBox(todo)"></mat-checkbox>
               </section>
             </td>
+           
+
             <td class="actionButton">
               <div class="example-button-row">
 
