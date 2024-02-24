@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 using TODO.API.Models;
+using TODO.API.Services.Interface;
 
 namespace TODO.API.Controllers
 {
@@ -10,11 +12,23 @@ namespace TODO.API.Controllers
     [ApiController]
     public class TodoController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
-
-        public TodoController(IConfiguration configuration)
+        private readonly IGetAllTodosService _getAllTodosService;
+        private readonly IAddTodoService _addTodoService;
+        private readonly IUpdateTodoService _updateTodoService;
+        private readonly IDeleteTodoService _deleteTodoService;
+        private readonly ITodoFilterService _filterService;
+        public TodoController(
+            IGetAllTodosService getAllTodosService, 
+            IAddTodoService addTodoService,IUpdateTodoService updateTodoService,
+            IDeleteTodoService deleteTodoService,
+            ITodoFilterService filterService
+        )
         {
-            _configuration = configuration;
+            _getAllTodosService = getAllTodosService;
+            _addTodoService = addTodoService;   
+            _updateTodoService = updateTodoService;
+            _deleteTodoService = deleteTodoService;
+            _filterService = filterService;
         }
 
         [HttpGet]
@@ -22,103 +36,61 @@ namespace TODO.API.Controllers
         
         public Response GetAllTodos(int id)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.GetAllTodos(connection,id);
-            return response;
+           
+            return _getAllTodosService.GetAllTodos(id);
+           
         }
         [HttpPost]
         [Route("AddTodo")]
         public Response AddTodo(Todo todo)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.AddTodo(connection, todo);
-            return response;
+          
+            return _addTodoService.AddTodo(todo);
         }
 
         [HttpPut]
         [Route("UpdateTodo")]
         public Response UpdateTodo(Todo todo)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.UpdateTodo(connection, todo);
-            return response;
+           return _updateTodoService.UpdateTodo(todo);
         }
-
         [HttpDelete]
         [Route("DeleteTodo/{id}/{task_id}")]
-        public Response DeleteEmployee(int id,int task_id)
+        public Response DeleteTodo(int id,int task_id)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.DeleteTodo(connection, id,task_id);
-            return response;
+            return _deleteTodoService.DeleteTodo(id,task_id);
         }
-
 
         [HttpGet]
-        [Route("GetAllTodosUsingFilter/{FilterOption}/{userId}")]
+        [Route("GetAllTodosUsingFilter/{FilterOption}/{UserId}")]
 
-        public Response GetAllTodosUsingFilter(string FilterOption,int UserId)
+        public Response GetAllTodosUsingFilter(string FilterOption, int UserId)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.GetAllTodosUsingFilter(connection,FilterOption, UserId);
-            return response;
+            return _filterService.GetAllTodosUsingFilter(FilterOption, UserId);
         }
-        [HttpPatch]
-        [Route("StatusUpdateTodo")]
-        public Response StatusUpdateTodo(Todo todo)
+        [HttpGet]
+        [Route("GetAllTodosUsingStatus/{FilterOption}/{id}")]
+
+        public Response GetAllTodosUsingStatus(int FilterOption, int id)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.StatusUpdateTodo(connection, todo);
-            return response;
+            return _filterService.GetAllTodosUsingStatus(FilterOption, id);
+
         }
 
         [HttpGet]
         [Route("GetAllTodosUsingSearch/{SearchText}/{id}")]
 
-        public Response GetAllTodosUsingSearch(string SearchText,int id)
+        public Response GetAllTodosUsingSearch(string SearchText, int id)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.GetAllTodosUsingSearch(connection, SearchText,id);
-            return response;
+           
+            return _filterService.GetAllTodosUsingSearch(SearchText, id);
         }
-
-        [HttpPost]
-        [Route("UserValidition")]
-        public AuthResponse UserValidition(Login login)
+        [HttpPatch]
+        [Route("StatusUpdateTodo")]
+        public Response StatusUpdateTodo(Todo todo)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            AuthResponse response = new AuthResponse();
-            DAL dal = new DAL();
-            response = dal.UserValidition(connection, login);
-            return response;
+           return _updateTodoService.StatusUpdateTodo(todo);
         }
-
-        [HttpGet]
-        [Route("GetAllTodosUsingStatus/{FilterOption}/{id}")]
-
-        public Response GetAllTodosUsingStatus(int  FilterOption,int id)
-        {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            Response response = new Response();
-            DAL dal = new DAL();
-            response = dal.GetAllTodosUsingStatus(connection, FilterOption, id);
-            return response;
-        }
-
 
     }   
 }
