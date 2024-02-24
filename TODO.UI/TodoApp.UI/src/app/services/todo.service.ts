@@ -54,7 +54,7 @@ export class TodoService {
 
   userValidition(login: Login): Observable<Login> {
     
-    return this.http.post<any>(this.baseApiUrl + '/api/Todo/UserValidition', login)
+    return this.http.post<any>(this.baseApiUrl + '/api/Auth/UserValidition', login)
     .pipe(
       map(response => response.login) // Map to the 'login' property
     );

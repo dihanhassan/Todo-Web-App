@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "TODO.API.Controllers.AuthController",
+    "Method": "UserValidition",
+    "RelativePath": "api/Auth/UserValidition",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "TODO.API.Models.Login",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TODO.API.Models.AuthResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "TODO.API.Controllers.TodoController",
     "Method": "AddTodo",
     "RelativePath": "api/Todo/AddTodo",

@@ -16,6 +16,7 @@ builder.Services.AddTransient<IAddTodoRepo, AddTodoRepo>();
 builder.Services.AddTransient<IUpdateTodoRepo, UpdateTodoRepo>();
 builder.Services.AddTransient<IDeleteTodoRepo , DeleteTodoRepo>();
 builder.Services.AddTransient<ITodoFilterRepo, TodoFilterRepo>();
+builder.Services.AddTransient<ILoginRepo, LoginRepo>();
 
 // Dependency Injection for Servise
 builder.Services.AddTransient<IGetAllTodosService, GetAllTodosService>();
@@ -23,6 +24,8 @@ builder.Services.AddTransient<IAddTodoService, AddTodoService>();
 builder.Services.AddTransient<IUpdateTodoService, UpdateTodoService>();
 builder.Services.AddTransient<IDeleteTodoService, DeleteTodoService>();
 builder.Services.AddTransient<ITodoFilterService, TodoFilterService>();
+builder.Services.AddTransient<ILoginService, LoginService>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
