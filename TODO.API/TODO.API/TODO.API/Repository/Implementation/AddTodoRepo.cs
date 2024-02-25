@@ -14,10 +14,20 @@ namespace TODO.API.Repository.Implementation
         public int  AddTodo(Todo todo)
         {
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            SqlCommand cmd = new SqlCommand("INSERT INTO TodoTable_v2 (Id , Title , Descriptions ,CreatedOn ,IsCompleted ,DueDate, Prioritys) VALUES ( '" + todo.Id + "' ,'" + todo.Title + "', '" + todo.Descriptions + "', GETDATE() ,'" + todo.IsCompleted + "' , '" + todo.DueDate + "' , '" + todo.Prioritys + "' )", connection);
+            string query = @"INSERT INTO TodoTable_v2 (Id, Title, Descriptions, CreatedOn, IsCompleted, DueDate, Prioritys) 
+                        VALUES (@Id, @Title, @Descriptions, GETDATE(), @IsCompleted, @DueDate, @Prioritys)";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@Id", todo.Id);
+            //cmd.Parameters.AddWithValue("@Id", todo.Id);
+            cmd.Parameters.AddWithValue("@Title", todo.Title);
+            cmd.Parameters.AddWithValue("@Descriptions", todo.Descriptions);
+            cmd.Parameters.AddWithValue("@IsCompleted", todo.IsCompleted);
+            cmd.Parameters.AddWithValue("@DueDate", todo.DueDate);
+            cmd.Parameters.AddWithValue("@Prioritys", todo.Prioritys);
+
             connection.Open();
             int RowsCount = cmd.ExecuteNonQuery();
-            connection.Close();
             return RowsCount;
         }
     }

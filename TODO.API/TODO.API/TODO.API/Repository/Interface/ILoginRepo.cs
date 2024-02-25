@@ -5,6 +5,6 @@ namespace TODO.API.Repository.Interface
 {
     public interface ILoginRepo
     {
-        public asyc Task<Login> UserValidition(Login login)
+        public Login UserValidition( Login login);
     }
 }

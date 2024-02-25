@@ -14,22 +14,40 @@ namespace TODO.API.Repository.Implementation
         }
         public int UpdateTodo(Todo todo)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            SqlCommand cmd = new SqlCommand("UPDATE  TodoTable_v2 SET Title =  '" + todo.Title + "', Descriptions = '" + todo.Descriptions + "', DueDate = '" + todo.DueDate + "', Prioritys = '" + todo.Prioritys + "', IsCompleted = '" + todo.IsCompleted + "'   WHERE ID = '" + todo.Id + "' AND TaskID = '" + todo.TaskId + "'  ", connection);
-            connection.Open();
-            int RowsCount = cmd.ExecuteNonQuery();
-            connection.Close();
-            return RowsCount;
+            int rowsAffected = 0;
+            using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString()))
+            {
+                string query = "UPDATE TodoTable_v2 SET Title = @Title, Descriptions = @Descriptions, DueDate = @DueDate, Prioritys = @Prioritys, IsCompleted = @IsCompleted WHERE ID = @Id AND TaskID = @TaskId";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@Title", todo.Title);
+                cmd.Parameters.AddWithValue("@Descriptions", todo.Descriptions);
+                cmd.Parameters.AddWithValue("@DueDate", todo.DueDate);
+                cmd.Parameters.AddWithValue("@Prioritys", todo.Prioritys);
+                cmd.Parameters.AddWithValue("@IsCompleted", todo.IsCompleted);
+                cmd.Parameters.AddWithValue("@Id", todo.Id);
+                cmd.Parameters.AddWithValue("@TaskId", todo.TaskId);
+
+                connection.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            return rowsAffected;
         }
 
         public int StatusUpdateTodo(Todo todo)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            SqlCommand cmd = new SqlCommand("UPDATE  TodoTable_v2 SET  IsCompleted = '" + todo.IsCompleted + "'   WHERE ID = '" + todo.Id + "' AND TaskId= '" + todo.TaskId + "' ", connection);
-            connection.Open();
-            int RowsCount = cmd.ExecuteNonQuery();
-            connection.Close();
-            return RowsCount;
+            int rowsAffected = 0;
+            using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString()))
+            {
+                string query = "UPDATE TodoTable_v2 SET IsCompleted = @IsCompleted WHERE ID = @Id AND TaskId = @TaskId";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@IsCompleted", todo.IsCompleted);
+                cmd.Parameters.AddWithValue("@Id", todo.Id);
+                cmd.Parameters.AddWithValue("@TaskId", todo.TaskId);
+
+                connection.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            return rowsAffected;
         }
 
 
