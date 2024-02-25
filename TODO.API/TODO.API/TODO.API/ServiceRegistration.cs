@@ -1,4 +1,5 @@
-﻿using TODO.API.Repository.Implementation;
+﻿using TODO.API.Models.Data;
+using TODO.API.Repository.Implementation;
 using TODO.API.Repository.Interface;
 using TODO.API.Services.Implementation;
 using TODO.API.Services.Interface;
@@ -21,6 +22,7 @@ namespace TODO.API
             Services.AddTransient<IDeleteTodoService, DeleteTodoService>();
             Services.AddTransient<ITodoFilterService, TodoFilterService>();
             Services.AddTransient<ILoginService, LoginService>();
+            Services.AddTransient<DapperDBContext>();
         }
     }
 }
