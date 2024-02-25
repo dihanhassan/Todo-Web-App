@@ -1,5 +1,7 @@
-﻿using System.Data.SqlClient;
+﻿using Dapper;
+using System.Data.SqlClient;
 using TODO.API.Models;
+using TODO.API.Models.Data;
 using TODO.API.Repository.Interface;
 
 namespace TODO.API.Repository.Implementation
@@ -7,28 +9,31 @@ namespace TODO.API.Repository.Implementation
     public class AddTodoRepo: IAddTodoRepo
     {
         private readonly IConfiguration _configuration;
-        public AddTodoRepo(IConfiguration configuration)
+        private readonly DapperDBContext _dapperDBContext;
+        public AddTodoRepo(IConfiguration configuration,DapperDBContext dapperDBContext)
         {
             _configuration = configuration;
+            _dapperDBContext = dapperDBContext;
         }
         public int  AddTodo(Todo todo)
         {
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            string query = @"INSERT INTO TodoTable_v2 (Id, Title, Descriptions, CreatedOn, IsCompleted, DueDate, Prioritys) 
-                        VALUES (@Id, @Title, @Descriptions, GETDATE(), @IsCompleted, @DueDate, @Prioritys)";
+            
 
-            SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@Id", todo.Id);
-            //cmd.Parameters.AddWithValue("@Id", todo.Id);
-            cmd.Parameters.AddWithValue("@Title", todo.Title);
-            cmd.Parameters.AddWithValue("@Descriptions", todo.Descriptions);
-            cmd.Parameters.AddWithValue("@IsCompleted", todo.IsCompleted);
-            cmd.Parameters.AddWithValue("@DueDate", todo.DueDate);
-            cmd.Parameters.AddWithValue("@Prioritys", todo.Prioritys);
+            string query = @"
+            INSERT INTO TodoTable_v2 (Id, Title, Descriptions, CreatedOn, IsCompleted, DueDate, Prioritys) 
+            VALUES (@Id, @Title, @Descriptions, GETDATE(), @IsCompleted, @DueDate, @Prioritys)
+            ";
+            int RowsCount = 0;
+            
+            using (var connection = this._dapperDBContext.CreateConnection())
+            {
 
-            connection.Open();
-            int RowsCount = cmd.ExecuteNonQuery();
+               RowsCount = connection.Execute(query, todo);
+
+            }
             return RowsCount;
+
+
         }
     }
 }

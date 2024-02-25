@@ -1,4 +1,5 @@
 using TODO.API;
+using TODO.API.Models.Data;
 using TODO.API.Repository.Implementation;
 using TODO.API.Repository.Interface;
 using TODO.API.Services.Implementation;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddTransient<DapperDBContext>();
 
 // Register your repository and service implementations
 

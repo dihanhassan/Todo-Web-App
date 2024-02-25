@@ -1,4 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using Dapper;
+using System.Data.SqlClient;
+using TODO.API.Models.Data;
 using TODO.API.Repository.Interface;
 
 namespace TODO.API.Repository.Implementation
@@ -6,26 +8,23 @@ namespace TODO.API.Repository.Implementation
     public class DeleteTodoRepo :IDeleteTodoRepo
     {
         private readonly IConfiguration _configuration;
-        public DeleteTodoRepo(IConfiguration configuration)
+        private readonly DapperDBContext _dapperDBContext;
+        public DeleteTodoRepo(IConfiguration configuration,DapperDBContext  dapperDBContext)
         {
             _configuration = configuration;
+            _dapperDBContext = dapperDBContext;
         }
         public int DeleteTodo(int id, int task_id)
         {
-            //SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
-            //SqlCommand cmd = new SqlCommand("Delete from TodoTable_v2 WHERE ID = '" + id + "' AND TaskId = '" + task_id + "'", connection);
-            //connection.Open();
-            //int RowsCount = cmd.ExecuteNonQuery();
-            //connection.Close();
-            //return RowsCount;
-            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
+            
+            int RowsCount = 0;
             string querry = "Delete from TodoTable_v2 WHERE ID = @Id AND TaskID = @TaskId";
-            SqlCommand cmd = new SqlCommand(querry, connection);
-            cmd.Parameters.AddWithValue("@Id", id);
-            cmd.Parameters.AddWithValue("@TaskId", task_id);
+            using (var connection = _dapperDBContext.CreateConnection())
+            {
+                RowsCount = connection.Execute(querry, new { Id = id, TaskId = task_id });
 
-            connection.Open();
-            return cmd.ExecuteNonQuery();
+            }
+            return RowsCount;
 
         }
     }
