@@ -55,3 +55,16 @@ td{
     display: flex;
     flex-direction: column;
 }
+
+.todoContainer,.details-class,.container{
+    max-width: 2920 !important;
+    width: 90%;
+   
+    margin: auto;
+}
+.details-class{
+    max-width: 2520px !important;
+    width: 100%;
+
+    margin: auto;
+}
