@@ -1,0 +1,32 @@
+<div mat-dialog-title>
+    <p>Share Task</p>
+  </div>
+  
+  <div mat-dialog-content>
+      <div class="row">
+       
+          <!-- <input matInput placeholder="Task" [(ngModel)]="newTodo.title"> -->
+          <mat-card>
+            <mat-card-content style="color: black;">{{newTodo.title}}</mat-card-content>
+        </mat-card>
+    
+      </div>
+    
+      <div class="row" [ngStyle]="{'margin-top' :'20px'}">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="newTodo.dueDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+       
+      </div>
+    </div>
+    
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary"  mat-dialog-close="">Share</button>
+      <button mat-raised-button  mat-dialog-close="">Close</button>
+     
+    </div>
+    <!-- (click)="updateTodo()" -->

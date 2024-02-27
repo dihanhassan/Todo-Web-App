@@ -6,6 +6,7 @@ import { EditTodoComponent } from '../edit-todo/edit-todo.component';
 import { AddtodoComponent } from '../addtodo/addtodo.component';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TaskAssignComponent } from '../task-assign/task-assign.component';
 import { ActivatedRoute } from '@angular/router';
 import { warn } from 'console';
 
@@ -166,6 +167,16 @@ export class TodosComponent implements OnInit{
       // Handle 
     });
     
+   }
+   taskAssign(todo:Todo){
+    
+    const dialogRef = this._dialog.open(TaskAssignComponent, {
+      data: { todo: todo }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // Handle 
+    });
    }
 
    GetAllTodosUsingFilter(){

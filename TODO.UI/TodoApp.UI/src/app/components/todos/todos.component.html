@@ -59,7 +59,7 @@
       </div>
       
     </div>
-    <div class="row details-class">
+    <div class="row details-class table-section">
 
       <table class="table">
         <thead>
@@ -73,12 +73,13 @@
             <th scope="col" style="color: rgb(211, 48, 116);">PRIORITY</th>
             <th scope="col" style="color: rgb(211, 48, 116);">DUE DATE</th>
             <th scope="col" style="color: rgb(211, 48, 116);">COMPLETED</th>
-            
+            <th scope="col" style="color: rgb(211, 48, 116);">TASK SHARE</th>
             <th style="color: rgb(211, 48, 116);"> MAKE ACTION</th>
            
             <th scope="col"></th>
           </tr>
         </thead>
+
         <tbody>
 
           <tr *ngFor="let todo of todos">
@@ -86,6 +87,8 @@
               style="font-size: 13px;"><del>{{todo.createdOn | date: "MMM d, y, h:mm:ss a"}}</del></td>
             <td *ngIf="todo.isCompleted === 0" [ngStyle]="{'background-color': 'white' , 'color':'black'}"
               style="font-size: 13px;">{{todo.createdOn | date: "MMM d, y, h:mm a"}}</td>
+
+              
 
             <td *ngIf="todo.isCompleted === 1" [ngStyle]="{'background-color': 'white' , 'color':'black'}">
               <del>{{todo.title}}</del></td>
@@ -113,7 +116,20 @@
                 <mat-checkbox *ngIf="todo.isCompleted == 1" [checked]="true" (change)="checkBox(todo)"></mat-checkbox>
               </section>
             </td>
-           
+
+            <td>
+                <div class="example-button-row">
+                  <div class="example-flex-container">
+                    <div class="example-button-container">
+                      <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
+                      (click)="taskAssign(todo)"
+                      >
+                        <mat-icon>share</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </td>
 
             <td class="actionButton">
               <div class="example-button-row">

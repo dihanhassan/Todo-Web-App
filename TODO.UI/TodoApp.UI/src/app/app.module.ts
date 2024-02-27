@@ -18,7 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
-
+import {MatCardModule} from '@angular/material/card';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 
@@ -26,6 +26,7 @@ import {FormBuilder} from '@angular/forms';
 import {JsonPipe} from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { TaskAssignComponent } from './components/task-assign/task-assign.component';
 
 
 
@@ -35,7 +36,8 @@ import { LogInComponent } from './components/log-in/log-in.component';
     TodosComponent,
     AddtodoComponent,
     EditTodoComponent,
-    LogInComponent
+    LogInComponent,
+    TaskAssignComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +59,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
     
     JsonPipe,
     MatCheckboxModule,
+    MatCardModule,
     
    
 

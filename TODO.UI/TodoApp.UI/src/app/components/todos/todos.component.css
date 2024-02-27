@@ -68,3 +68,12 @@ td{
 
     margin: auto;
 }
+.container{
+    max-width: 1920px !important;
+    width: 100% !important;
+}
+.table-section{
+    
+    max-width: 1900px !important;
+    width: 100% !important;
+}
